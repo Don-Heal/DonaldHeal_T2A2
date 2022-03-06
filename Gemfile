@@ -53,5 +53,5 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 #A generalized Rack framework for multiple-provider authentication.
 gem 'omniauth', '~> 2.0', '>= 2.0.4'
 
-#Manages application of security headers with many safe defaults.
-gem 'secure_headers', '~> 6.3', '>= 6.3.3'
+# #Manages application of security headers with many safe defaults.
+# gem 'secure_headers', '~> 6.3', '>= 6.3.3'
