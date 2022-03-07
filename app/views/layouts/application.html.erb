@@ -12,9 +12,9 @@
 
   <body>
 
-    <%flash.each do |key, value|%>
-      <div class="alert alert-<%=alert_class(key)%> alert-dismissable fade show" role="alert">
-        <%=value%>
+    <%flash.each do |type, msg|%>
+      <div class="alert alert-<%=alert_class(type)%> alert-dismissable fade show" role="alert">
+        <%=msg%>
         <button type="button" class="close" data-dismiss="alert" aria-label="close"> <span aria-hidden="true">&times;</span> </button>
       </div>
     <%end%>
