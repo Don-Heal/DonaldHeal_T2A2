@@ -2,19 +2,14 @@
   <a class="navbar-brand" href="/">Homebrew-Adventures</a>
   <form class="form-inline">
   <%if user_signed_in?%>
-    <a class="btn btn-outline-info" href="/users/sign_in" role="button">
-        Sell Item
-    </a>
+    <a class="btn btn-outline-info" <%=link_to "Sell Item", items_path, class: "nav-link"%></a>
     <div style="padding-left: 10px;">
-      <a class="btn btn-outline-danger"<%=link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"%>>
-      </a>
+      <a class="btn btn-outline-danger"<%=link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"%></a>
     </div>
     <%else%>
-    <a class="btn btn-outline-primary" <%= link_to "Log In", new_user_session_path, class: "nav-link"%>>
-    </a>
+    <a class="btn btn-outline-primary" <%= link_to "Log In", new_user_session_path, class: "nav-link"%></a>
     <div style="padding-left: 10px;">
-      <a class="btn btn-outline-success" <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>>
-      </a>
+      <a class="btn btn-outline-success" <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%></a>
     </div>    
   <%end%>
   </form>

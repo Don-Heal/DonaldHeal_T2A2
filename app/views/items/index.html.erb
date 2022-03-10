@@ -1,0 +1,24 @@
+
+
+<h1>Items List</h1>
+<div class="container">
+    <div class= "row row-cols-sm-1 row-cols-ms-2 row-cols-lg-4">
+        <%@items.each do |item|%>
+      <div class="card" style="width: 18rem;">
+        <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
+      <div class="card-body">
+      <h5 class="card-title"><%=item.name%></h5>
+        <p class="card-text"><%=item.description%></p>
+      </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Condition: <%=item.condition%></li>
+          <li class="list-group-item">Price: <%=item.price%></li>    
+        </ul>
+        <div class="card-body">
+          <a href="item" class="card-link">View</a>
+          <a href="" class="card-link">Buy now</a>
+        <%end%>
+        </div>
+      </div>
+  </div>
+</div>

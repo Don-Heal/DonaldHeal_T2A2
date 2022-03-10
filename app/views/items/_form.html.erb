@@ -1,0 +1,41 @@
+<%=form_with model: @item, local: true do |f| %>
+
+    <div class="form-group row">
+        <label for="title3" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-5">
+                <%=f.text_field :name%>
+            </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="description3" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-5">
+                <%=f.text_area :description%>
+            </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="ccondition3" class="col-sm-2 col-form-label">Condition</label>
+            <div class="col-sm-5">
+                <%=f.select :condition, @condition%>
+            </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="title3" class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-5">
+                <%=f.select :category_id, @categories.all.collect {|c| [c.name]}%>
+            </div>
+    </div>
+    
+    <div class="form-group row">
+        <label for="title3" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-5">
+                <%=f.number_field :price%>
+            </div>
+    </div>
+    
+
+    <%=f.submit%>
+
+<%end%>
