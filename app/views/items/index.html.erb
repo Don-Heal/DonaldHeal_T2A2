@@ -1,8 +1,8 @@
 
 
 <h1>Items List</h1>
-<div class="container">
-    <div class= "row row-cols-sm-1 row-cols-ms-2 row-cols-lg-4">
+<section class="container">
+    <div class= "row-cols-sm-2 row-cols-ms-4 row-cols-lg-6">
         <%@items.each do |item|%>
       <div class="card" style="width: 18rem;">
         <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
@@ -21,4 +21,4 @@
         </div>
       </div>
   </div>
-</div>
+</section>

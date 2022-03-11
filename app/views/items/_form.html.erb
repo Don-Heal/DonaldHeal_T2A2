@@ -17,14 +17,17 @@
     <div class="form-group row">
         <label for="ccondition3" class="col-sm-2 col-form-label">Condition</label>
             <div class="col-sm-5">
-                <%=f.select :condition, @condition%>
+                    <%= f.radio_button :condition, "Used", :value => "Used" %>
+                    <%= f.label :condition_Used, "Used" %>
+                    <%= f.radio_button :condition, "New", :value => "New"%>
+                    <%= f.label :condition_new, "New" %>
             </div>
     </div>
 
     <div class="form-group row">
         <label for="title3" class="col-sm-2 col-form-label">Category</label>
             <div class="col-sm-5">
-                <%=f.select :category_id, @categories.all.collect {|c| [c.name]}%>
+                <%=f.select :category_id, Category.pluck(:name, :id)%>
             </div>
     </div>
     
