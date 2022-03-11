@@ -5,9 +5,6 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-  def show
-  end
-
   def new
     @item = Item.new
   end
@@ -19,6 +16,10 @@ class ItemsController < ApplicationController
     else
       redirect_to "/items/new", alert: "Something went wrong with your item please try again."
     end
+  end
+
+  def show
+    @items = Item.find(params[:id])
   end
 
   private

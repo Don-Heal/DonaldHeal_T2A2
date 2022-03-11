@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get "items/index", to: "items#index"
   get "items/new", to: "items#new", as: "items"
   post "items/new", to: "items#create"
+  get "items/show/:id", to: "items#show"
   
 end
