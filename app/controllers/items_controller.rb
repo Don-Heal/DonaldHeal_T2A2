@@ -15,9 +15,9 @@ class ItemsController < ApplicationController
   def create
     @items = current_user.items.new(params.require(:item).permit(:name, :description, :condition, :category_id, :price))
     if @items.save
-      redirect_to "/items/index", notice: "Item was successfully created"
+      redirect_to "/items/index", notice: "Your item has been created successfully."
     else
-      redirect_to "/items/new", alert: "Item was not created"
+      redirect_to "/items/new", alert: "Something went wrong with your item please try again."
     end
   end
 
