@@ -3,6 +3,7 @@
 <h1>Items List</h1>
 <div class="container">
   <div class= "row row-cols-sm-1 row-cols-ms-2 row-cols-lg-4">
+  <%# making each card for total Items that are held within the database using bootstrap for styling and positioning%>
         <%@items.each do |item|%>
         <div class="col-4">
         <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
@@ -14,7 +15,7 @@
           <li class="list-group-item">Price: <%=item.price%></li>    
         </ul>
         <div class="card-body">
-          <a href="show/<%=item.id%>"class="card-link">View</a>
+          <a href="<%=item.id%>"class="card-link">View</a>
           <a href="" class="card-link">Buy now</a>
         </div>
         </div>

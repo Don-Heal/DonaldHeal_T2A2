@@ -1,12 +1,14 @@
 <%=form_with model: @item, local: true do |f| %>
 
+<%# enter name of item to be created using bootstrap for styling%>
     <div class="form-group row">
         <label for="title3" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-5">
-                <%=f.text_field :name%>
+                <%=f.text_field :name %>
             </div>
     </div>
 
+<%# enter description of item to be created using bootstrap for styling%>
     <div class="form-group row">
         <label for="description3" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-5">
@@ -14,16 +16,18 @@
             </div>
     </div>
 
+<%# enter condition using radio buttons using bootstrap for styling%>
     <div class="form-group row">
         <label for="ccondition3" class="col-sm-2 col-form-label">Condition</label>
             <div class="col-sm-5">
-                    <%= f.radio_button :condition, "Used", :value => "Used" %>
+                    <%= f.radio_button :condition, "Used", :value => "Used"  %>
                     <%= f.label :condition_Used, "Used" %>
                     <%= f.radio_button :condition, "New", :value => "New"%>
                     <%= f.label :condition_new, "New" %>
             </div>
     </div>
 
+<%# making a drop down selection for which catagory will be selected using bootstrap for styling%>
     <div class="form-group row">
         <label for="title3" class="col-sm-2 col-form-label">Category</label>
             <div class="col-sm-5">
@@ -31,14 +35,23 @@
             </div>
     </div>
     
+<%# enter price for Item in cents to be converted to dollar else where using bootstrap for styling%>
     <div class="form-group row">
         <label for="title3" class="col-sm-2 col-form-label">Price</label>
         <div class="col-sm-5">
                 <%=f.number_field :price%>
             </div>
     </div>
-    
 
+<%# allowing picture upload using AWS S3 as cloud storage for application using bootstrap for styling%>
+        <div class="form-group row">
+        <label for="title3" class="col-sm-2 col-form-label">Image</label>
+            <div class="col-sm-5">
+                <%=f.file_field :picture, accept: "image/jpg, image/png, image/jpeg, image/gif"%>
+            </div>
+    </div>
+    
+<%# redirecting to another method to save to the database%>
     <%=f.submit%>
 
 <%end%>
