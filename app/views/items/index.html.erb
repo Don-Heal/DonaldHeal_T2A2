@@ -6,7 +6,12 @@
   <%# making each card for total Items that are held within the database using bootstrap for styling and positioning%>
         <%@items.each do |item|%>
         <div class="col-4">
-        <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
+        <%if item.picture.attached?%>
+          <%=image_tag item.picture, alt: item.name, class:"thumbnail card-img top"%>
+        <%else%>
+          <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
+        <%end%>
+        
       <div class="card-body">
       <h5 class="card-title"><%=item.name%></h5>
       </div>

@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
 
 # acccepted params for creating and updating for security.
   def auth_params
-    (params.require(:item).permit(:name, :description, :condition, :category_id, :price))
+    (params.require(:item).permit(:name, :description, :condition, :category_id, :price, :picture))
   end
 
 # prevent editing and deleting through params for unautherised users
