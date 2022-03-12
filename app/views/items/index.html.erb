@@ -5,7 +5,7 @@
   <div class= "row row-cols-sm-1 row-cols-ms-2 row-cols-lg-4">
   <%# making each card for total Items that are held within the database using bootstrap for styling and positioning%>
         <%@items.each do |item|%>
-        <div class="col-4">
+        <div class="col-4 ">
         <%if item.picture.attached?%>
           <%=image_tag item.picture, alt: item.name, class:"thumbnail card-img top"%>
         <%else%>
