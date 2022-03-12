@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :profile
+  has_one_attached :picture
 end

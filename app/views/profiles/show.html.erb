@@ -3,10 +3,11 @@
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" 
         <%if current_user.picture.attached?%>
-            <%=image_tag current_user.picture, alt: profile.name, class:"thumbnail card-img top"%>
+            <%=image_tag current_user.picture, alt: @profile.name, class:"thumbnail card-img top"%>
         <%else%>
-            <%=<img src="https://homebrew-app-images.s3.ap-southeast-2.amazonaws.com/profile-img.jpg">, class:"thumbnail card-img top"%>
-        <%end%>><span class="font-weight-bold"><%=current_user.username%></span><span class="text-black-50"><%=current_user.email%></span><span> </span></div>
+            <%=image_tag ("profile-img.jpg"), class:"thumbnail card-img top"%>
+        <%end%>>
+        <span class="font-weight-bold">Username</span><span class="text-black-50"><%=current_user.email%></span><span> </span></div>
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">

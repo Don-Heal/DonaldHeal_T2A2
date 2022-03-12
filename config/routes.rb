@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   delete "items/:id", to: "items#delete", as: "delete"
   get "profiles/new", to: "profiles#new", as: "profiles"
   post "profiles/new", to: "profiles#create"
-  get "profiles/:id/edit", to: "profile#edit", as: "edit_profile"
-  patch "profiles/:id", to: "profile#update"
-  put "profiles/:id", to: "profile#update"
-  get "profile/:id", to: "profile#show", as: "profile_home"
+  get "profiles/:id/edit", to: "profiles#edit", as: "edit_profile"
+  patch "profiles/:id", to: "profiles#update"
+  put "profiles/:id", to: "profiles#update"
+  get "profile", to: "profiles#show", as: "profile"
   
 end
