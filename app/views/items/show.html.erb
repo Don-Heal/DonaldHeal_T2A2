@@ -18,12 +18,13 @@
         </div>
             <div class="mb-4">
 <%# Checking if the current user is the same as the items creator to see if they can edit the listing or not%>
-                <%if current_user && @item.user_id%>
-                    <a href="/items/<%=@item.id%>/edit" class="mt-auto btn btn-warning">Edit</a>
-                    <a href="/items/index" class="mt-auto btn btn-danger">Back</a>
+                <%if current_user && current_user.id == @item.user_id%>
+                    <%= link_to "Edit", edit_item_path, class: "mt-auto btn btn-warning"%>
+                    <%= link_to "Delete", @items, method: :delete, class: "mt-auto btn btn-dark"%>
+                    <%= link_to "Back", items_home_path, class: "mt-auto btn btn-danger"%>
                 <%else%>
-                    <a href="#" class="mt-auto btn btn-primary">Buy Now</a>
-                    <a href="/items/index" class="mt-auto btn btn-danger">Back</a>
+                    <%= link_to "Buy Now", edit_item_path, class: "mt-auto btn btn-primary"%>
+                    <%= link_to "Back", items_home_path, class: "mt-auto btn btn-danger"%>
                 <%end%>
             </div>
         

@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   before_action :form_dependencies, only: [:new, :edit]
-  before_action :find_item, only: [:show, :edit, :update, :destroy]
+  before_action :find_item, only: [:show, :edit, :update, :delete, :auth_user]
   before_action :auth_params, only: [:create, :update]
-
+  before_action :auth_user, only: [:delete, :edit]
 
 # show all Items that the database contains
   def index
@@ -31,6 +31,11 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def delete
+    @item.destroy
+    redirect_to "/items/index", notice: "Your item has been deleted."
+  end
+
   def update
     @item.update(auth_params)
       if @item.save
@@ -53,9 +58,15 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-#acccepted params for creating and updating for security.
+# acccepted params for creating and updating for security.
   def auth_params
     (params.require(:item).permit(:name, :description, :condition, :category_id, :price))
   end
 
+# prevent editing and deleting through params for unautherised users
+  def auth_user
+    if @item.user_id != current_user.id
+      redirect_to "/items/index"
+    end
+  end
 end
