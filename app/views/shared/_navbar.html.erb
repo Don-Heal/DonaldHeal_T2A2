@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Homebrew-Adventures</a>
+  <a class="navbar-brand" href="/">Homebrew-Adventures << HOME</a>
   <form class="form-inline">
   <%if user_signed_in?%>
-      <a class="btn btn-outline-primary"<%=link_to "Profiles", "profiles/:id", class: "nav-link" %></a>
+      <a class="btn btn-outline-primary"<%=link_to "Profile", "/profiles/:id", class: "nav-link" %></a>
       <a class="btn btn-outline-info" <%=link_to "Sell Item", items_path, class: "nav-link"%></a>
         <div style="padding-left: 5px;">
           <a class="btn btn-outline-danger"<%=link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"%></a>

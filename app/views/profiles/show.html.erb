@@ -15,7 +15,7 @@
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Address Line 1<%=@profile.address%></div>
+                    <div class="col-md-12"><label class="labels">Address Line 1:<%=@profile.address%></div>
                     <div class="col-md-12"><label class="labels">Address Line 2:</label><%=@profile.address2%></div>
                     <div class="col-md-12"><label class="labels">Postcode:</label><%=@profile.zip%></div>
                     <div class="col-md-12"><label class="labels">State:</label><%=@profile.state%></div>
@@ -23,12 +23,12 @@
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Country:</label><%=@profile.country%></div>
                 </div>
-                <div class="mt-5 text-center"><%= link_to "Update Profile", ":id/edit", class: "mt-auto btn btn-warning"%></div>
+                <div class="mt-5 text-center"><%= link_to "Update Profile", "/profiles/:id/edit", class: "mt-auto btn btn-warning"%></div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5">
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">View Your Items</button></div>
+                <div class="mt-5 text-center"><%= link_to "View marketplace", "/items/index", class: "mt-auto btn btn-primary"%></div>
             </div>
         </div>
     </div>

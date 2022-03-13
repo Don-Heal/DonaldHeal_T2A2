@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
+  
   get "items/index", to: "items#index", as: "items_home"
   get "items/new", to: "items#new", as: "items"
   post "items/new", to: "items#create"
@@ -18,5 +19,13 @@ Rails.application.routes.draw do
   patch "profiles/:id", to: "profiles#update"
   put "profiles/:id", to: "profiles#update"
   get "profiles/:id", to: "profiles#show", as: "profile"
-  
+  get "pages/categories/:id", to: "pages#categories"
+  get "pages/categories/:id", to: "pages#categories"
+  get "pages/categories/:id", to: "pages#categories"
+  get "pages/categories/:id", to: "pages#categories"
+  get "pages/categories/:id", to: "pages#categories"
+  get "pages/categories/:id", to: "pages#categories"
+  get "pages/categories/:id", to: "pages#categories"
+  get "pages/categories/:id", to: "pages#categories"
+  get "pages/categories/:id", to: "pages#categories"
 end
