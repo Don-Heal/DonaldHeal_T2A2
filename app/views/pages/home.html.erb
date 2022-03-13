@@ -2,8 +2,28 @@
   <h1 class="display-4">Welcome to Homebrew Adventures DnD Marketplace</h1>
   <p class="lead">If you have already please make an account if you would like to buy and sell on this platform.</p>
   <hr class="my-4">
-  <p>To check out what some people have listed click below.</p>
+  <p>To check out the different Categories below or view the whole marketplace</p>
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="items/index" role="button">Enter Marketplace</a>
   </p>
 </div>
+
+<div class="container">
+<div class="card-deck row">
+<%@categories.each do |category|%>
+<div class="col-xs-12 col-sm-6 col-md-4">
+  <div class="card">
+    <div class="view overlay">
+      <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title"><%=category.name%></h4>
+      <p class="card-text"><%="Find it all here"%></p>
+      <button type="button" class="btn btn-light-blue btn-md">View</button>
+    </div>
+  </div>
+  </div>
+<%end%>

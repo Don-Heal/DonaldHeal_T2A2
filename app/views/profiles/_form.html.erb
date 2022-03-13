@@ -1,7 +1,5 @@
 
 <%=form_with model: @profile, local: true do |f| %>
-<h1>Welcome <%=current_user.email%></h1>
-<h3>Please enter your details for your profile</h3>
 
     <div class="form-group row">
         <label for="title3" class="col-sm-2 col-form-label">Username</label>
@@ -52,5 +50,7 @@
             </div>
     </div>
 </div>
-    <button type="submit" class="btn btn-primary">Create Profile</button>
+
+    <%=f.submit%>
+    
 <%end%>

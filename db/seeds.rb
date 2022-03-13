@@ -14,3 +14,4 @@ if Category.count == 0
         puts "created #{c} category"
     end
 end
+
