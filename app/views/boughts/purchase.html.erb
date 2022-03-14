@@ -21,13 +21,8 @@
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5">
-                <%if current_user && current_user.id == @item.user_id%>
-                    <%= link_to "Edit", edit_item_path, class: "mt-auto btn btn-warning"%>
                     <a href="/items/index" class="mt-auto btn btn-info">Return to Marketplace</a>
-                <%else%>
-                    <a href="/items/index" class="mt-auto btn btn-info">Return to Marketplace</a>
-                    <a href="/purchase/user/<%=current_user.id%>" class="mt-auto btn btn-primary">Buy now</a>
-                <%end%>
+                    <a href="" class="mt-auto btn btn-primary">Buy now</a>
             </div>
         </div>
     </div>

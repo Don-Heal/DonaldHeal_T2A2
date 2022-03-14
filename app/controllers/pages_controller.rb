@@ -13,4 +13,5 @@ before_action :variables, only: [:home, :categories]
     def variables
         @categories = Category.all
     end
+
 end
