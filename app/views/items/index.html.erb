@@ -18,8 +18,13 @@
           <li class="list-group-item">Price: <%=item.price%></li>    
         </ul>
         <div class="card-body">
-          <a href="<%=item.id%>"class="card-link">View</a>
-          <a href="" class="card-link">Buy now</a>
+                <%if current_user && current_user.id == @item.user_id%>
+                    <%= link_to "Edit", edit_item_path, class: "mt-auto btn btn-warning"%>
+                    <a href="/items/index" class="mt-auto btn btn-info">Return to Marketplace</a>
+                <%else%>
+                    <a href="/items/index" class="mt-auto btn btn-info">Return to Marketplace</a>
+                    <a href="/purchase/user/<%=current_user.id%>" class="mt-auto btn btn-primary">Buy now</a>
+                <%end%>
         </div>
         </div>
         <%end%>
