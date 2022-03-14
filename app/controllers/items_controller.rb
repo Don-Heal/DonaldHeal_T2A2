@@ -31,6 +31,10 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def user_items
+    @item = Item.where(user_id: current_user.id)
+  end
+
   def delete
     @item.destroy
     redirect_to "/items/index", notice: "Your item has been deleted."
