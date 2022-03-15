@@ -18,10 +18,15 @@
         </div>
             <div class="mb-4">
 <%# Checking if the current user is the same as the items creator to see if they can edit the listing or not%>
-                <%if current_user && current_user.id == @item.user_id%>
+                <%if current_user && current_user.id == @item.user_id && @item.sold == false%>
                     <%= link_to "Edit", edit_item_path, class: "mt-auto btn btn-warning"%>
                     <%= link_to "Delete", @items, method: :delete, class: "mt-auto btn btn-dark"%>
                     <%= link_to "Back", items_home_path, class: "mt-auto btn btn-danger"%>
+
+                <%elsif current_user && current_user.id == @item.user_id && @item.sold == true%>
+                    <%= link_to "Edit", edit_item_path, class: "mt-auto btn btn-warning"%>
+                    <%= link_to "Back", order_history_path, class: "mt-auto btn btn-danger"%>
+
                 <%else%>
                     <%= link_to "Buy Now", purchase_path, class: "mt-auto btn btn-primary"%>
                     <%= link_to "Back", items_home_path, class: "mt-auto btn btn-danger"%>
@@ -42,13 +47,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img class="d-block" src="https://picsum.photos/450/300?image=1072" alt="">
+            <%=image_tag @item.picture, alt: @item.name, class:"d-block"%>
             </div>
             <div class="carousel-item">
-            <img class="d-block" src="https://picsum.photos/450/300?image=855" alt="">
+            <%=image_tag @item.picture, alt: @item.name, class:"d-block"%>
             </div>
             <div class="carousel-item">
-            <img class="d-block" src="https://picsum.photos/450/300?image=355" alt="">
+            <%=image_tag @item.picture, alt: @item.name, class:"d-block"%>
             </div>
             <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

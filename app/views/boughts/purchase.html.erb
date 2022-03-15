@@ -1,9 +1,9 @@
-<h1>Purchase <%=@item.name%></h1>
+<h1>Order Confimation for <%=@item.name%></h1>
 
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" 
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px">
             <%=image_tag @item.picture, alt: @item.name, class:"thumbnail card-img top"%>
         <span class="font-weight-bold"><%=@item.name%></span><span class="text-black-50">Seller: <%=@item.user.email%></span></div>
         </div>
@@ -22,7 +22,7 @@
         <div class="col-md-4">
             <div class="p-3 py-5">
                     <a href="/items/index" class="mt-auto btn btn-info">Return to Marketplace</a>
-                    <a href="" class="mt-auto btn btn-primary">Buy now</a>
+                    <a href="/purchase/confimation/item/<%=@item.id%>" class="mt-auto btn btn-primary" >Confirm</a>
             </div>
         </div>
     </div>

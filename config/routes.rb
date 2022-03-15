@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   get "profiles/:id", to: "profiles#show", as: "profile"
   get "pages/categories/:id", to: "pages#categories"
   get "purchase/:id", to: "boughts#purchase", as: "purchase"
-  get "purchase/user/:id", to: "boughts#update"
+  get "purchase/confimation/item/:id", to: "items#buy"
+  get "items/user/order_history", to: "items#order_history", as: "order_history"
 end

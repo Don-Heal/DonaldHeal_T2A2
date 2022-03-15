@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :form_dependencies, only: [:new, :edit]
-  before_action :find_item, only: [:show, :edit, :update, :delete, :auth_user]
+  before_action :form_dependencies, only: [:new, :edit, :create]
+  before_action :find_item, only: [:show, :edit, :update, :delete, :auth_user, :buy]
   before_action :auth_params, only: [:create, :update]
   before_action :auth_user, only: [:delete, :edit]
 
 # show all Items that the database contains
   def index
-    @items = Item.all
+    @items = Item.where(sold: false)
   end
 
 # makes a new Item to be sent to create to post to database
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def user_items
-    @item = Item.where(user_id: current_user.id)
+    @item = Item.where(user_id: current_user.id, sold: false)
   end
 
   def delete
@@ -48,6 +48,20 @@ class ItemsController < ApplicationController
         redirect_to "/items/index", alert: "Something went wrong with your item please try again."
       end
   end
+
+  def buy
+    @item.update({user_id: current_user.id, sold: true})
+      if @item.save
+        redirect_to "/items/index", notice: "You bought an item."
+      else
+        redirect_to "/items/index", alert: "Something went wrong please try again."
+      end
+  end
+
+  def order_history
+    @items = Item.where(user_id: current_user.id, sold: true)
+  end
+
 
   private
 
@@ -73,4 +87,5 @@ class ItemsController < ApplicationController
       redirect_to "/items/index"
     end
   end
+
 end

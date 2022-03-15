@@ -1,12 +1,12 @@
 class BoughtsController < ApplicationController
-before_action :find_item, only: [:update, :purchase]
+before_action :find_item, only: [:purchase, :update]
 
     def purchase
         
     end
 
     def updated
-        @item
+        @item = @item.update({user_id: current_user.id, sold: true})
     end
 
     private
@@ -14,4 +14,6 @@ before_action :find_item, only: [:update, :purchase]
     def find_item
         @item = Item.find(params[:id])
     end
+
+
 end

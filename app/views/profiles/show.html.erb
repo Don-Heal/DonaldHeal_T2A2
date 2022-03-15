@@ -1,7 +1,7 @@
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" 
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px">
         <%if @profile.picture.attached?%>
             <%=image_tag @profile.picture, alt: @profile.username, class:"thumbnail card-img top"%>
         <%else%>
@@ -30,6 +30,7 @@
             <div class="p-3 py-5">
                 <div class="mt-5 text-center"><%= link_to "View marketplace", "/items/index", class: "mt-auto btn btn-primary"%></div>
                 <div class="mt-5 text-center"><%= link_to "View Your Items", "/items/users_items", class: "mt-auto btn btn-primary"%></div>
+                <div class="mt-5 text-center"><%= link_to "Order History", "/items/user/order_history", class: "mt-auto btn btn-info"%></div>
             </div>
         </div>
     </div>
