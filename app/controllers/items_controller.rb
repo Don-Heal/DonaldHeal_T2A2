@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def user_items
-    @item = Item.where(user_id: current_user.id, sold: false)
+    @items = Item.where(user_id: current_user.id, sold: false)
   end
 
   def delete
