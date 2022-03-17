@@ -2,24 +2,40 @@
     <div class= "row row-cols-sm-1 row-cols-ms-2 row-cols-lg-4">
         <%# making each card for total Items that are held within the database using bootstrap for styling and positioning%>
         <%@items.each do |item|%>
-        <div class="col-4">
-            <%if item.picture.attached?%>
-                <%=image_tag item.picture, alt: item.name, class:"thumbnail card-img top"%>
+
+            <%if current_user && current_user.id == item.user_id && item.sold == true%>
+                <div class="col-4">
+                    <%if item.picture.attached?%>
+                        <%=image_tag item.picture, alt: item.name, class:"thumbnail card-img top"%>
+                    <%else%>
+                        <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
+                    <%end%>
+                        <div class="card-body mb-3 bg-light">
+                            <h5 class="card-title"><%=item.name%></h5>
+                                <ul class="list-group list-group-flush">  
+                                </ul>
+                        <div class="card-body mb-3 bg-light">
+                            <a href="/items/<%=item.id%>"class="mt-auto btn btn-warning">View Purchase</a>
             <%else%>
-                <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
+                <div class="col-4">
+                    <%if item.picture.attached?%>
+                        <%=image_tag item.picture, alt: item.name, class:"thumbnail card-img top"%>
+                    <%else%>
+                        <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
+                    <%end%>
+                        <div class="card-body mb-3 bg-light">
+                            <h5 class="card-title"><%=item.name%></h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Condition: <%=item.condition%></li>
+                                    <li class="list-group-item">Owner: <%=@profile.username%></li>
+                                    <li class="list-group-item">Price: <%=number_to_currency(item.price, precision: 2)%> AUD</li>  
+                                </ul>
+                        <div class="card-body mb-3 bg-light">
+                            <a href="/items/<%=item.id%>"class="mt-auto btn btn-warning">View</a>
+                        </div>
+                    </div>
+                </div>
             <%end%>
-        
-        <div class="card-body mb-3 bg-light">
-            <h5 class="card-title"><%=item.name%></h5>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Condition: <%=item.condition%></li>
-            <li class="list-group-item">Price: <%=number_to_currency(item.price, precision: 2)%> AUD</li>    
-        </ul>
-        <div class="card-body mb-3 bg-light">
-            <a href="/items/<%=item.id%>"class="mt-auto btn btn-warning">View</a>
-        </div>
-        </div>
-        </div>
         <%end%>
     </div>
 </div>

@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :delete, :auth_user, :buy]
   before_action :auth_params, only: [:create, :update]
   before_action :auth_user, only: [:delete, :edit]
+  before_action :find_profile, only: [:show]
 
 # show all Items that the database contains
   def index
@@ -87,5 +88,9 @@ class ItemsController < ApplicationController
       redirect_to "/items/index"
     end
   end
+# find profile
+    def find_profile
+        @profile = Profile.find_by(user_id: current_user.id)
+    end
 
 end

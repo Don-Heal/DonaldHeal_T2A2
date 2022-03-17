@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
     before_action :auth_params, only: [:create, :update]
     before_action :find_profile, only: [:show, :edit, :update]
+    before_action :bought_stats, :listed_stats, only: [:show]
 
     def home
     end
@@ -40,4 +41,13 @@ class ProfilesController < ApplicationController
     def auth_params
         (params.require(:profile).permit(:username, :address, :address2, :city, :country, :state, :zip, :picture))
     end
+
+    def bought_stats
+        @bought = Item.where(user_id: current_user.id, sold: true)
+    end
+
+    def listed_stats
+        @listed = Item.where(user_id: current_user.id, sold: false)
+    end
+
 end

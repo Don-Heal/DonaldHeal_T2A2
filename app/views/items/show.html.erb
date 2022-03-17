@@ -1,21 +1,20 @@
 <%# modifying a bootstrap templete to suit displaying a single item on screen when selected with a image carousel%>
 <div class="container py-3">
-<div class="title h1 text-center"><%=@item.name%></div>
+    <div class="title h1 text-center"><%=@item.name%></div>
 <!-- Card Start -->
-<div class="card">
-    <div class="row ">
-
-    <div class="col-md-7 px-3">
-        <div class="card-block px-6">
-        <h2 class="card-title"><%=@item.name%></h2>
-        <p class="card-text">
-            <%=@item.description%>
-        </p>
-        <div>
-        <li>Condition: <%=@item.condition%></li>
-        <li>Price: <%=number_to_currency(@item.price, precision: 2)%></li> 
-        <li>Category: <%=@item.category.name%></li>
-        </div>
+        <div class="card">
+            <div class="row ">
+                <div class="col-md-7 px-3">
+                    <div class="card-block px-6">
+                        <h2 class="card-title"><%=@item.name%></h2>
+                        <p class="card-text">
+                            <%=@item.description%>
+                        </p>
+                    <div>
+                        <li>Condition: <%=@item.condition%></li>
+                        <li>Price: <%=number_to_currency(@item.price, precision: 2)%></li> 
+                        <li>Category: <%=@item.category.name%></li>
+                </div>
             <div class="mb-4">
 <%# Checking if the current user is the same as the items creator to see if they can edit the listing or not%>
                 <%if current_user && current_user.id == @item.user_id && @item.sold == false%>
@@ -24,7 +23,6 @@
                     <%= link_to "Back", items_home_path, class: "mt-auto btn btn-danger"%>
 
                 <%elsif current_user && current_user.id == @item.user_id && @item.sold == true%>
-                    <%= link_to "Edit", edit_item_path, class: "mt-auto btn btn-warning"%>
                     <%= link_to "Back", order_history_path, class: "mt-auto btn btn-danger"%>
 
                 <%else%>
@@ -39,12 +37,11 @@
     <!-- Carousel start -->
     <div class="col-md-5">
         <div id="CarouselTest" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
-            <li data-target="#CarouselTest" data-slide-to="1"></li>
-            <li data-target="#CarouselTest" data-slide-to="2"></li>
-
-        </ol>
+            <ol class="carousel-indicators">
+                <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
+                <li data-target="#CarouselTest" data-slide-to="1"></li>
+                <li data-target="#CarouselTest" data-slide-to="2"></li>
+            </ol>
         <div class="carousel-inner">
             <div class="carousel-item active ">
                 <%if @item.picture.attached?%>
@@ -70,17 +67,15 @@
                 <%end%>
             </div>
 
-            <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-</a>
-            <a class="carousel-control-next" href="#CarouselTest" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-</a>
+                <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span> </a>
+                <a class="carousel-control-next" href="#CarouselTest" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span></a>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
     <!-- End of carousel -->
     </div>
 </div>
