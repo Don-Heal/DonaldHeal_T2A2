@@ -56,6 +56,6 @@ gem 'omniauth', '~> 2.0', '>= 2.0.4'
 # #Manages application of security headers with many safe defaults.
 # gem 'secure_headers', '~> 6.3', '>= 6.3.3'
 
-gem "aws-sdk-s3", "~> 1.113"
+gem 'aws-sdk-s3'
 
 gem 'rails_12factor', group: :production

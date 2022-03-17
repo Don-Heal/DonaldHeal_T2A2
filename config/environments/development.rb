@@ -76,4 +76,6 @@ Rails.application.configure do
 
   # devise defult mailer for development
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.require_master_key = true
 end
