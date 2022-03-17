@@ -17,15 +17,15 @@
         <%end%>
         
     <div class="card-body mb-3 bg-light">
-    <h5 class="card-title"><%=item.name%></h5>
+        <h5 class="card-title"><%=item.name%></h5>
 
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Condition: <%=item.condition%></li>
-            <li class="list-group-item">Price: <%=item.price%></li>    
-        </ul>
-        <div class="card-body mb-3 bg-light">
-            <a href="/items/<%=item.id%>"class="mt-auto btn btn-warning">View</a>
-        </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Condition: <%=item.condition%></li>
+                <li class="list-group-item">Price: <%=item.price%></li>    
+            </ul>
+            <div class="card-body mb-3 bg-light">
+                <a href="/items/<%=item.id%>"class="mt-auto btn btn-warning">View</a>
+            </div>
         </div>
         </div>
     <%end%>

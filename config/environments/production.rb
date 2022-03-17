@@ -30,7 +30,7 @@ Rails.application.configure do
   config.assets.js_compressor = :terser
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  # config.assets.compile = true
+  config.assets.compile = true
   config.serve_static_assets = true
 
   # Compress JavaScripts and CSS  
