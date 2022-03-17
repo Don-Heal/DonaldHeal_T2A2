@@ -59,3 +59,5 @@ gem 'omniauth', '~> 2.0', '>= 2.0.4'
 gem 'aws-sdk-s3'
 
 gem 'rails_12factor', group: :production
+
+gem 'sassc-rails'

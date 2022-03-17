@@ -262,6 +262,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.4)
   rails_12factor
   sass-rails (>= 6)
+  sassc-rails
   spring
   turbolinks (~> 5)
   tzinfo-data
