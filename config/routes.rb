@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   patch "profiles/:id", to: "profiles#update"
   put "profiles/:id", to: "profiles#update"
   get "profiles/:id", to: "profiles#show", as: "profile"
-  get "pages/categories/:id", to: "pages#categories"
+  get "pages/categories/:id", to: "pages#categories", as: "category"
   get "purchase/:id", to: "boughts#purchase", as: "purchase"
   get "purchase/confimation/item/:id", to: "items#buy"
   get "items/user/order_history", to: "items#order_history", as: "order_history"

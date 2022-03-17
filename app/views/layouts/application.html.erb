@@ -10,7 +10,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background-image: url(/assets/backround.jpg);">
+
+
 
     <%flash.each do |type, msg|%>
       <div class="alert alert-<%=alert_class(type)%> alert-dismissable fade show" role="alert">

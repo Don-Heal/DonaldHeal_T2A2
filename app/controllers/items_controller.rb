@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :form_dependencies, only: [:new, :edit, :create]
+  before_action :form_dependencies, only: [:new, :edit, :create, :index]
   before_action :find_item, only: [:show, :edit, :update, :delete, :auth_user, :buy]
   before_action :auth_params, only: [:create, :update]
   before_action :auth_user, only: [:delete, :edit]
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def user_items
-    @item = Item.where(user_id: current_user.id, sold: false)
+    @items = Item.where(user_id: current_user.id, sold: false)
   end
 
   def delete
