@@ -48,7 +48,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active ">
                 <%if @item.picture.attached?%>
-                    <%=image_tag item.picture, alt: @item.name, class:"d-block w-100 p-3 h-75 p-3"%>
+                    <%=image_tag @item.picture, alt: @item.name, class:"d-block w-100 p-3 h-75 p-3"%>
                 <%else%>
                     <%=image_tag "dice-img.jpg", alt: "dice", class:"d-block w-100 p-3 h-75 p-3"%>
                 <%end%>
@@ -56,7 +56,7 @@
 
             <div class="carousel-item">
                 <%if @item.picture.attached?%>
-                    <%=image_tag item.picture, alt: @item.name, class:"d-block w-100 p-3 h-75 p-3"%>
+                    <%=image_tag @item.picture, alt: @item.name, class:"d-block w-100 p-3 h-75 p-3"%>
                 <%else%>
                     <%=image_tag "dice-img.jpg", alt: "dice", class:"d-block w-100 p-3 h-75 p-3"%>
                 <%end%>
@@ -64,7 +64,7 @@
 
             <div class="carousel-item">
                 <%if @item.picture.attached?%>
-                    <%=image_tag item.picture, alt: @item.name, class:"d-block w-100 p-3 h-75 p-3"%>
+                    <%=image_tag @item.picture, alt: @item.name, class:"d-block w-100 p-3 h-75 p-3"%>
                 <%else%>
                     <%=image_tag "dice-img.jpg", alt: "dice", class:"d-block w-100 p-3 h-75 p-3"%>
                 <%end%>
