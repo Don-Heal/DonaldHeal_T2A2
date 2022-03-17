@@ -20,7 +20,7 @@
 <%# Checking if the current user is the same as the items creator to see if they can edit the listing or not%>
                 <%if current_user && current_user.id == @item.user_id && @item.sold == false%>
                     <%= link_to "Edit", edit_item_path, class: "mt-auto btn btn-warning"%>
-                    <%= link_to "Delete", @items, method: :delete, class: "mt-auto btn btn-dark"%>
+                    <%= link_to "Delete", @items, method: :delete, data: {confirm: "Are you sure?"}, class: "mt-auto btn btn-dark"%>
                     <%= link_to "Back", items_home_path, class: "mt-auto btn btn-danger"%>
 
                 <%elsif current_user && current_user.id == @item.user_id && @item.sold == true%>
