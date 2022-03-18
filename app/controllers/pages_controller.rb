@@ -4,14 +4,13 @@ before_action :variables, only: [:home, :categories]
     end
 
     def categories
-        @item = Item.where(category_id: params[:id])
+        @item = Item.where(category_id: params[:id], sold: false)
     end
 
     private
 
     def variables
-        @categories = Category.all
-        
+        @categories = Category.all  
     end
 
 end
