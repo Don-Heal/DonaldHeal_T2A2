@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :delete, :auth_user, :buy]
   before_action :auth_params, only: [:create, :update]
   before_action :auth_user, only: [:delete, :edit]
-  before_action :find_profile, only: [:show]
+  before_action :find_profile, only: [:show, :index, :order_history]
 
 # show all Items that the database contains
   def index
