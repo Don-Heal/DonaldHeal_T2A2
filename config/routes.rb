@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
 
-  root to: "pages#home"
+  root to: "pages#home" as: "home_page"
 
   
   get "items/index", to: "items#index", as: "items_home"

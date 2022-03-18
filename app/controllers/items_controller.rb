@@ -85,7 +85,7 @@ class ItemsController < ApplicationController
 # prevent editing and deleting through params for unautherised users
   def auth_user
     if @item.user_id != current_user.id
-      redirect_to "/items/index"
+      redirect_to "/items/index" alert: "Please Sign In or Sign Up to do that."
     end
   end
 # find profile
