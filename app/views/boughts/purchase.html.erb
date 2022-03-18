@@ -4,7 +4,11 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px">
-            <%=image_tag @item.picture, alt: @item.name, class:"thumbnail card-img top"%>
+                <%if @item.picture.attached?%>
+                    <%=image_tag @item.picture, alt: @item.name, class:"thumbnail card-img top"%>
+                <%else%>
+                    <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
+                <%end%>
         <span class="font-weight-bold"><%=@item.name%></span><span class="text-black-50">Seller: <%=@item.user.email%></span></div>
         </div>
         <div class="col-md-5 border-right">
