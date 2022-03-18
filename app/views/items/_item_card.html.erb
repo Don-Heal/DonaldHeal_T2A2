@@ -30,7 +30,15 @@
                                     <li class="list-group-item">Price: <%=number_to_currency(item.price, precision: 2)%> AUD</li>  
                                 </ul>
                         <div class="card-body mb-3 bg-light">
-                            <a href="/items/<%=item.id%>"class="mt-auto btn btn-warning">View</a>
+                            <%if current_user && current_user.id%>
+                                <div class="card-body mb-3 bg-light">
+                                    <a href="/items/<%=item.id%>"class="mt-auto btn btn-warning">View</a>
+                                </div>
+                            <%else%>
+                                <div class="card-body mb-3 bg-light">
+                                    <a class="btn btn-success" <%= link_to "Sign Up to Buy", new_user_registration_path, class: "nav-link"%></a>
+                                </div>
+                            <%end%>
                         </div>
                     </div>
                 </div>

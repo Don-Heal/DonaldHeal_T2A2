@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-before_action :variables, :auth_user, only: [:home, :categories]
+before_action :variables, only: [:home, :categories]
     def home
     end
 
@@ -11,11 +11,7 @@ before_action :variables, :auth_user, only: [:home, :categories]
 
     def variables
         @categories = Category.all
+        
     end
 
-    def auth_user
-        if @item.user_id != current_user.id
-            redirect_to "/items/index" alert: "Please Sign In or Sign Up to do that."
-        end
-    end
 end

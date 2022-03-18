@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :delete, :auth_user, :buy]
   before_action :auth_params, only: [:create, :update]
   before_action :auth_user, only: [:delete, :edit]
-  before_action :find_profile, only: [:show, :index, :order_history]
+  before_action :find_profile, only: [:show, :order_history]
 
 # show all Items that the database contains
   def index
@@ -83,9 +83,9 @@ class ItemsController < ApplicationController
   end
 
 # prevent editing and deleting through params for unautherised users
-  def auth_user
+  def auth_user_edit
     if @item.user_id != current_user.id
-      redirect_to "/items/index" alert: "Please Sign In or Sign Up to do that."
+      redirect_to "/items/index", alert: "Something went wrong please try again."
     end
   end
 # find profile
