@@ -2,7 +2,7 @@
 
     <div class="p-1 text-light text-center shadow-1-strong rounded mb-1">
         <h3>Back to All items</h3>
-            <a href="/items/index"class="btn btn-danger btn-sm">Back</a>
+            <a href="/items/index"class="btn btn-danger btn-lg">Back</a>
     </div>
 
 <div class="container">
@@ -22,12 +22,11 @@
                     <li class="list-group-item">Condition: <%=item.condition%></li>
                     <li class="list-group-item">Price: <%=item.price%></li>    
                 </ul>
-        </div>
-
                 <div class="card-body mb-3 bg-light">
                     <a href="/items/<%=item.id%>"class="mt-auto btn btn-warning">View</a>
                 </div>
             </div>
-        <%end%>
-    </div>
+        </div>
+    <%end%>
 </div>
+
