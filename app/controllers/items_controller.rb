@@ -83,7 +83,7 @@ class ItemsController < ApplicationController
   end
 
 # prevent editing and deleting through params for unautherised users
-  def auth_user_edit
+  def auth_user
     if @item.user_id != current_user.id
       redirect_to "/items/index", alert: "Something went wrong please try again."
     end
