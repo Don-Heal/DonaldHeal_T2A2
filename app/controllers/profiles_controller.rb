@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
     before_action :auth_params, only: [:create, :update]
-    before_action :find_profile, only: [:show, :edit, :update]
+    before_action :find_profile, only: [:show, :edit, :update, :finder]
     before_action :bought_stats, :listed_stats, only: [:show]
 
     def home
