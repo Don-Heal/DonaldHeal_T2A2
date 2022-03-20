@@ -55,5 +55,3 @@ gem 'aws-sdk-s3'
 gem 'rails_12factor', group: :production
 
 gem 'sassc-rails'
-
-gem 'profanity_filter', '~> 0.1.1'

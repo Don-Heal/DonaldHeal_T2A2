@@ -39,7 +39,7 @@
     <div class="form-group row">
         <label for="title3" class="col-sm-2 col-form-label">Zip: </label>
             <div class="col-sm-5">
-                <%=f.text_field :zip, placeholder: "1234", :required => true%>
+                <%=f.text_field :zip, placeholder: "1234", :required => true, max: 4, min: 4%>
             </div>
     </div>
 

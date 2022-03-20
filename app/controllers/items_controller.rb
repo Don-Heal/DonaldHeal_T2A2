@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
 
   def edit
   end
-
+#finds the item of the current user is not sold which means its currently listed.
   def user_items
     @items = Item.where(user_id: current_user.id, sold: false)
   end
@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
         redirect_to "/items/index", alert: "Something went wrong please try again."
       end
   end
-
+#finds Items that have been made sold as true allowing for the user to see past purchases
   def order_history
     @items = Item.where(user_id: current_user.id, sold: true)
   end

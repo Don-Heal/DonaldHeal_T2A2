@@ -3,10 +3,11 @@
     <h2> If you have already please make an account if you would like to buy and sell on this platform.</h2>
     <h2> To check out the different Categories below or view the whole marketplace.</h2>
       <p class="lead">
+      <%#allows the user to view the entire list of items currently for sale%>
         <a class="btn btn-primary btn-lg" href="items/index" role="button">Enter Marketplace</a>
       </p>
 </div>
-
+<%#Shows all categories to the user on the page so they are able to select which category they would like to view first%>
 <div class="container">
   <div class="card-deck">
     <%@categories.each do |category|%>

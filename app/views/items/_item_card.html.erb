@@ -1,6 +1,7 @@
 <div class="container">
     <div class= "row row-cols-sm-1 row-cols-ms-2 row-cols-lg-4">
-        <%# making each card for total Items that are held within the database using bootstrap for styling and positioning%>
+        <%# making each card for total Items that are held within the database using bootstrap for styling and positioning also uses a if statment to know which infomation
+        should be viewed on screen%>
         <%@items.each do |item|%>
             <%if current_user && current_user.id == item.user_id && item.sold == true%>
                 <div class="col-4">

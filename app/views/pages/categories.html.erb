@@ -8,7 +8,7 @@
 <div class="container">
     <div class= "row row-cols-sm-1 row-cols-ms-2 row-cols-lg-4">
         <%# making each card for total Items that are held within the database using bootstrap for styling and positioning%>
-            <%=@item.each do |item|%>
+            <%@item.each do |item|%>
             <div class="col-4 ">
                 <%if item.picture.attached?%>
                     <%=image_tag item.picture, alt: item.name, class:"thumbnail card-img top"%>
@@ -27,7 +27,7 @@
                     </div>
                 <%else%>
                     <div class="card-body mb-3 bg-light">
-                        <a class="btn btn-success" <%= link_to "Sign Up to Buy", new_user_registration_path, class: "nav-link"%></a>
+                        <a class="btn btn-success" <%= link_to "Sign Up to Buy", new_user_registration_path, class: "nav-link"%>></a>
                     </div>
                 <%end%>
             </div>
