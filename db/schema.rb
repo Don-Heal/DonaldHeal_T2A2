@@ -43,20 +43,6 @@ ActiveRecord::Schema.define(version: 2022_03_18_040505) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "boughts", force: :cascade do |t|
-    t.string "name"
-    t.string "condition"
-    t.text "description"
-    t.integer "price"
-    t.boolean "sold", default: true
-    t.bigint "user_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_boughts_on_category_id"
-    t.index ["user_id"], name: "index_boughts_on_user_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
