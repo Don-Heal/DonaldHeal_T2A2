@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :delete, :auth_user, :buy]
   before_action :auth_params, only: [:create, :update]
   before_action :auth_user, only: [:delete, :edit]
+  before_action :find_profile, only: [:show, :order_history]
 
 # show all Items that the database contains
   def index
@@ -30,7 +31,7 @@ class ItemsController < ApplicationController
 
   def edit
   end
-
+#finds the item of the current user is not sold which means its currently listed.
   def user_items
     @items = Item.where(user_id: current_user.id, sold: false)
   end
@@ -57,7 +58,7 @@ class ItemsController < ApplicationController
         redirect_to "/items/index", alert: "Something went wrong please try again."
       end
   end
-
+#finds Items that have been made sold as true allowing for the user to see past purchases
   def order_history
     @items = Item.where(user_id: current_user.id, sold: true)
   end
@@ -84,8 +85,12 @@ class ItemsController < ApplicationController
 # prevent editing and deleting through params for unautherised users
   def auth_user
     if @item.user_id != current_user.id
-      redirect_to "/items/index"
+      redirect_to "/items/index", alert: "Something went wrong please try again."
     end
   end
+# find profile
+    def find_profile
+        @profile = Profile.find_by(user_id: current_user.id)
+    end
 
 end

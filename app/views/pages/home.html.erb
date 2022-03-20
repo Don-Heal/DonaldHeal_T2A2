@@ -1,32 +1,30 @@
 <div class="bg-image p-5 text-center text-black shadow-1-strong rounded mb-3">
   <h1 class="mb-10 h1">Welcome to Homebrew Adventures DnD Marketplace</h1>
-    <h2>
-      If you have already please make an account if you would like to buy and sell on this platform.
-    </h2>
-    <h2>
-      To check out the different Categories below or view the whole marketplace
-    </h2>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="items/index" role="button">Enter Marketplace</a>
-    </p>
+    <h2> If you have already please make an account if you would like to buy and sell on this platform.</h2>
+    <h2> To check out the different Categories below or view the whole marketplace.</h2>
+      <p class="lead">
+      <%#allows the user to view the entire list of items currently for sale%>
+        <a class="btn btn-primary btn-lg" href="items/index" role="button">Enter Marketplace</a>
+      </p>
 </div>
-
+<%#Shows all categories to the user on the page so they are able to select which category they would like to view first%>
 <div class="container">
-<div class="card-deck">
-<%@categories.each do |category|%>
-<div class="col-xs-12 col-sm-6 col-md-4">
-  <div class="card-body mb-3 bg-light">
-    <div class="view overlay">
-      <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
-      <a href="/pages/categories/<%=category.id%>">
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
+  <div class="card-deck">
+    <%@categories.each do |category|%>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-body mb-3 bg-light">
+          <div class="view overlay">
+            <%=image_tag "dice-img.jpg", alt: "dice", class:"thumbnail card-img top"%>
+            <a href="/pages/categories/<%=category.id%>">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
     <div class="card-body">
       <h4 class="card-title"><%=category.name%></h4>
-      <p class="card-text">"Find it all here"</p>
-      <a href="/pages/categories/<%=category.id%>"class="btn btn-primary btn-lg">View</a>
+        <p class="card-text">"Find it all here"</p>
+        <a href="/pages/categories/<%=category.id%>"class="btn btn-primary btn-lg">View</a>
+      </div>
     </div>
-  </div>
   </div>
 <%end%>

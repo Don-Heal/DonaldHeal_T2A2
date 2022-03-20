@@ -50,12 +50,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
-#A generalized Rack framework for multiple-provider authentication.
-gem 'omniauth', '~> 2.0', '>= 2.0.4'
-
-# #Manages application of security headers with many safe defaults.
-# gem 'secure_headers', '~> 6.3', '>= 6.3.3'
-
 gem 'aws-sdk-s3'
 
 gem 'rails_12factor', group: :production

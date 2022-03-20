@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
     before_action :auth_params, only: [:create, :update]
-    before_action :find_profile, only: [:show, :edit, :update]
+    before_action :find_profile, only: [:show, :edit, :update, :finder , :found]
+    before_action :bought_stats, :listed_stats, only: [:show]
 
     def home
     end
@@ -14,12 +15,19 @@ class ProfilesController < ApplicationController
         if @profile.save
             redirect_to "/items/index", notice: "Your profile has been created successfully."
         else
-            redirect_to "/profiles/new", alert: "Something went wrong with your profile please try again."
+            redirect_to "/profiles/new", alert: "Something went wrong like Username already taken please try again."
         end
     end
 
+    def finder
+
+    end
+
+    def found
+        @profile = Profile.all
+    end
+
     def show
-        
     end
 
     def update
@@ -40,4 +48,13 @@ class ProfilesController < ApplicationController
     def auth_params
         (params.require(:profile).permit(:username, :address, :address2, :city, :country, :state, :zip, :picture))
     end
+
+    def bought_stats
+        @bought = Item.where(user_id: current_user.id, sold: true)
+    end
+
+    def listed_stats
+        @listed = Item.where(user_id: current_user.id, sold: false)
+    end
+
 end

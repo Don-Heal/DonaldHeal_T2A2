@@ -24,4 +24,10 @@ Rails.application.routes.draw do
   get "purchase/:id", to: "boughts#purchase", as: "purchase"
   get "purchase/confimation/item/:id", to: "items#buy"
   get "items/user/order_history", to: "items#order_history", as: "order_history"
+  get "profile/finder", to: "profiles#finder"
+  get "profile/found/:id", to: "profiles#found"
+  get "profile/:zip", to: "profiles#found"
+  get "profile/:city", to: "profiles#found"
+  get "profile/:state", to: "profiles#found"
+  get "profile/:country", to: "profiles#found"
 end
